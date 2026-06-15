@@ -10,7 +10,7 @@ A residual-driven adaptive multi-rate framework for nonlinear analog circuit emu
 
 ## Project page
 
-**[mezea-uvg.github.io/rama](https://mezea-uvg.github.io/RAMA/)** — paper, code, supplementary derivations, benchmark results, and VST demo.
+**[mezea-uvg.github.io/RAMA](https://mezea-uvg.github.io/RAMA/)** — paper, code, supplementary derivations, benchmark results, and VST demo.
 
 ---
 
