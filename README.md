@@ -2,7 +2,7 @@
 
 **Residual-Adaptive Multi-rate Analog circuit emulation**
 
-[![GitHub Pages](https://img.shields.io/badge/site-live-17C7C0?style=flat-square)](https://YOUR_USERNAME.github.io/rama/)
+[![GitHub Pages](https://img.shields.io/badge/site-live-17C7C0?style=flat-square)](https://mezea-uvg.github.io/RAMA/)
 
 A residual-driven adaptive multi-rate framework for nonlinear analog circuit emulation, targeting virtual analog audio applications.
 
@@ -10,7 +10,7 @@ A residual-driven adaptive multi-rate framework for nonlinear analog circuit emu
 
 ## Project page
 
-**[YOUR_USERNAME.github.io/rama](https://YOUR_USERNAME.github.io/rama/)** — paper, code, supplementary derivations, benchmark results, and VST demo.
+**[YOUR_USERNAME.github.io/rama](https://mezea-uvg.github.io/RAMA/)** — paper, code, supplementary derivations, benchmark results, and VST demo.
 
 ---
 
@@ -26,18 +26,6 @@ A residual-driven adaptive multi-rate framework for nonlinear analog circuit emu
 ├── code/                 ← MATLAB and C++ reference implementation
 ├── docs/                 ← Additional documentation
 └── assets/               ← CSS, JS, logo
-```
-
----
-
-## Local preview
-
-No build step needed. Open `index.html` directly in a browser, or use any static server:
-
-```bash
-# Python 3
-python3 -m http.server 8000
-# then open http://localhost:8000
 ```
 
 ---
