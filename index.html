@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RAMA — Residual-Adaptive Multi-rate Analog circuit emulation. A residual-driven adaptive integration framework for nonlinear analog audio circuit emulation. DAFx-26." />
+  <meta property="og:title"       content="RAMA — Residual-Adaptive Multi-rate Analog Circuit Emulation" />
+  <meta property="og:description" content="Open-source research on residual-driven adaptive multi-rate circuit emulation for virtual analog audio." />
+  <meta property="og:type"        content="website" />
+  <title>RAMA — Residual-Adaptive Multi-rate Analog Circuit Emulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+
+    <!-- Logo: dark-mode variant — navy #0B2233 swapped to off-white #F0F7F6 -->
+    <a href="#home" class="nav-logo" aria-label="RAMA home">
+      <svg viewBox="0 0 1600 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <style>
+            .nl { stroke: #F0F7F6; fill: none; }
+            .tl { stroke: #17C7C0; fill: none; }
+            .wm { fill: #F0F7F6; }
+          </style>
+        </defs>
+        <path class="nl" d="M 116 291 A 195 195 0 0 1 484 291" stroke-width="18" stroke-linecap="round"/>
+        <path class="nl" d="M 484 409 A 195 195 0 0 1 116 409" stroke-width="18" stroke-linecap="round"/>
+        <circle class="tl" cx="72"  cy="350" r="24" stroke-width="13"/>
+        <circle class="tl" cx="570" cy="350" r="24" stroke-width="13"/>
+        <path class="tl" d="M 96 350 H 148"  stroke-width="16" stroke-linecap="round"/>
+        <path class="tl" d="M 160 327 V 373 M 183 327 V 373" stroke-width="16" stroke-linecap="round"/>
+        <path class="tl" d="M 183 350 H 228"  stroke-width="16" stroke-linecap="round"/>
+        <path class="tl" d="M 228 350 L 247 350 L 262 326 L 287 438 L 312 266 L 338 458 L 365 292 L 390 412 L 414 314 L 432 350" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="tl" d="M 432 350 L 446 325 L 460 350 L 474 325 L 488 350 L 502 325 L 516 350" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="tl" d="M 516 350 H 546"  stroke-width="16" stroke-linecap="round"/>
+        <path class="wm" d="M 745.15625,421 708.95996,367.26953 H 694.29687 V 421 H 665.38086 V 279.08594 h 51.57715 q 27.37793,0 39.99023,9.84375 12.71485,9.84375 12.71485,32.2998 0,18.14942 -7.69043,28.91602 -7.58789,10.7666 -21.63575,13.74023 L 778.27637,421 Z m -4.81934,-98.54004 q 0,-10.86914 -5.53711,-14.56055 -5.43457,-3.6914 -18.04687,-3.6914 h -22.45606 v 37.83691 h 21.22559 q 9.74121,0 14.9707,-1.8457 5.2295,-1.8457 7.48536,-5.74219 2.35839,-3.89648 2.35839,-11.99707 z M 798.22461,421 845.1875,279.08594 h 37.63184 L 929.88477,421 h -29.63379 l -9.4336,-28.81348 H 836.16406 L 826.93555,421 Z m 46.14258,-54.14063 h 38.24707 L 863.54199,308.20703 Z M 1078.2119,421 v -95.36133 l -34.043,59.26758 h -16.7138 L 993.82227,325.63867 V 421 H 965.93164 V 279.08594 h 33.3252 l 37.01656,67.36816 37.3243,-67.36816 h 32.6074 V 421 Z m 64.0401,0 46.9628,-141.91406 h 37.6319 L 1273.9121,421 h -29.6338 l -9.4336,-28.81348 h -54.6533 L 1170.9629,421 Z m 46.1425,-54.14063 h 38.2471 l -19.0723,-58.65234 z"/>
+      </svg>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#paper">Paper</a></li>
+      <li><a href="#code">Code</a></li>
+      <li><a href="#supplementary">Supplementary</a></li>
+      <li><a href="#demo">VST Demo</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#docs">Docs</a></li>
+    </ul>
+
+    <a href="https://github.com/YOUR_USERNAME/rama" class="nav-github" target="_blank" rel="noopener" aria-label="RAMA on GitHub">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span>GitHub</span>
+    </a>
+
+    <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="home" class="hero" aria-label="Hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <!-- Faint large-scale circuit schematic (left side atmosphere) -->
+  <svg class="hero-circuit" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid meet">
+    <g stroke="#17C7C0" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Outer ring (mirroring logo motif, enlarged) -->
+      <path d="M 80 320 A 220 220 0 0 1 520 320" stroke-width="10"/>
+      <path d="M 520 480 A 220 220 0 0 1 80 480" stroke-width="10"/>
+      <!-- Circuit nodes -->
+      <circle cx="40"  cy="400" r="28" stroke-width="9"/>
+      <circle cx="560" cy="400" r="28" stroke-width="9"/>
+      <!-- Left lead -->
+      <line x1="68" y1="400" x2="120" y2="400" stroke-width="9"/>
+      <!-- Capacitor -->
+      <line x1="132" y1="370" x2="132" y2="430" stroke-width="9"/>
+      <line x1="158" y1="370" x2="158" y2="430" stroke-width="9"/>
+      <line x1="158" y1="400" x2="220" y2="400" stroke-width="9"/>
+      <!-- Waveform section -->
+      <path d="M 220 400 L 246 400 L 265 368 L 296 480 L 328 340 L 360 496 L 390 354 L 420 448 L 446 376 L 468 400" stroke-width="9"/>
+      <!-- Resistor zigzag -->
+      <path d="M 468 400 L 484 366 L 500 400 L 516 366 L 532 400" stroke-width="9"/>
+      <line x1="532" y1="400" x2="560" y2="400" stroke-width="9" />
+      <!-- Additional branches (vertical connections) -->
+      <line x1="132" y1="370" x2="132" y2="200" stroke-width="5"/>
+      <line x1="132" y1="200" x2="300" y2="200" stroke-width="5"/>
+      <line x1="300" y1="200" x2="300" y2="140" stroke-width="5"/>
+      <line x1="260" y1="140" x2="340" y2="140" stroke-width="5"/>
+      <circle cx="132" cy="200" r="9" stroke-width="6"/>
+      <circle cx="300" cy="140" r="9" stroke-width="6"/>
+      <line x1="158" y1="430" x2="158" y2="580" stroke-width="5"/>
+      <line x1="158" y1="580" x2="380" y2="580" stroke-width="5"/>
+      <line x1="380" y1="580" x2="380" y2="500" stroke-width="5"/>
+      <circle cx="380" cy="580" r="9" stroke-width="6"/>
+      <!-- Ground symbols (vertical lines descending) -->
+      <line x1="300" y1="145" x2="300" y2="80" stroke-width="4"/>
+      <line x1="278" y1="80" x2="322" y2="80" stroke-width="5"/>
+      <line x1="283" y1="89" x2="317" y2="89" stroke-width="4"/>
+      <line x1="288" y1="98" x2="312" y2="98" stroke-width="3"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">RESIDUAL · ADAPTIVE · MULTI-RATE · CIRCUIT EMULATION</p>
+    <h1 class="hero-title">
+      Residual-Driven<br>
+      Adaptive<br>
+      <em>Multi-Rate</em><br>
+      Circuit Emulation
+    </h1>
+    <p class="hero-subtitle">
+      A research project on nonlinear analog circuit emulation for virtual analog audio —
+      bridging DAE-based modeling, local linear surrogate solving, and residual-driven
+      adaptive time stepping.
+    </p>
+    <div class="hero-actions">
+      <a href="#paper" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Read the Papers
+      </a>
+      <a href="https://github.com/YOUR_USERNAME/rama" class="btn btn-secondary" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        Browse Code
+      </a>
+      <a href="supplementary/" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        Browse Supplementary Material
+      </a>
+      <a href="vst-demo/" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Try the VST Demo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about-section" aria-label="About RAMA">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <p class="section-label">About the Project</p>
+        <p class="about-lead">A residual-driven adaptive solver for nonlinear analog audio circuit emulation.</p>
+      </div>
+      <p class="about-body">
+        RAMA explores a residual-driven adaptive multi-rate formulation for nonlinear analog circuit emulation.
+        Starting from a DAE representation of the circuit, the method replaces nonlinear device constraints with
+        a local linear surrogate inside an equality-constrained optimization step, then uses the post-step
+        nonlinear residual to drive adaptive internal time stepping. The result allocates computational effort
+        proportional to local nonlinear activity — spending more steps through fast transients and recovering
+        sample-synchronous throughput during quiescent segments.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAPER · CODE · SUPPLEMENTARY
+     ============================================================ -->
+<section id="paper" class="features-section" aria-label="Project resources">
+  <div class="container">
+    <div class="features-header">
+      <p class="section-label">Resources</p>
+      <h2 class="section-title">Papers, Code &amp; Supplementary</h2>
+    </div>
+    <div class="cards-grid">
+
+      <!-- Publications: two papers -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <p class="card-title">Publications</p>
+        <p class="card-body">Two peer-reviewed papers — the initial formulation presented at DAFx&#8209;25, and the extended method with the diode clipper VST case study at DAFx&#8209;26.</p>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <a href="paper/DAFx25_RAMA.pdf" class="btn btn-ghost">DAFx&#8209;25 Paper →</a>
+          <a href="paper/DAFx26_RAMA.pdf" class="btn btn-ghost">DAFx&#8209;26 Paper →</a>
+        </div>
+      </div>
+
+      <div class="card" id="code">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <p class="card-title">Open-Source Code</p>
+        <p class="card-body">MATLAB reference implementation with modular components, test circuits, and examples. Includes the equality-constrained solver, residual-based step controller, and reference nonlinear device models. A C++ port is not planned at this stage.</p>
+        <a href="https://github.com/YOUR_USERNAME/rama" class="btn btn-ghost" target="_blank" rel="noopener">Browse on GitHub →</a>
+      </div>
+
+      <div class="card" id="supplementary">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <p class="card-title">Supplementary Material</p>
+        <p class="card-body">Extended derivations, circuit matrices, implementation details, and ablation studies not in the main paper. Includes convergence bound proofs and full MNA matrix constructions.</p>
+        <a href="supplementary/" class="btn btn-ghost">Browse Material →</a>
+      </div>
+
+      <div class="card" id="demo">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <p class="card-title">VST Plugin Example</p>
+        <p class="card-body">Real-time plugin demonstrating adaptive circuit emulation on classic nonlinear circuits. Expose device parameters as smooth controls, enabling virtual component morphing beyond fixed analog hardware.</p>
+        <a href="vst-demo/" class="btn btn-ghost">Try the VST Demo →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BENCHMARKS
+     ============================================================ -->
+<section id="benchmarks" class="benchmarks-section" aria-label="Benchmark results">
+  <div class="container">
+    <div class="benchmarks-header">
+      <div>
+        <p class="section-label">Results</p>
+        <h2 class="section-title">Benchmark Circuits</h2>
+      </div>
+      <a href="benchmarks/reproduce.md" class="btn btn-ghost">Reproduce Results →</a>
+    </div>
+    <div class="benchmark-grid">
+
+      <!-- ── Diode Clipper ── -->
+      <div class="benchmark-card">
+        <p class="benchmark-title">// CLIPPER — DIODE PAIR</p>
+        <div class="benchmark-plot">
+          <!-- Drop benchmark-clipper.svg (or .png) exported from MATLAB at assets/figures/benchmark-clipper.svg -->
+          <img src="assets/figures/benchmark-clipper.svg"
+               alt="Diode Clipper: V(out) vs time — SPICE reference vs RAMA"
+               loading="lazy"
+               onerror="this.hidden=true;this.nextElementSibling.removeAttribute('hidden')" />
+          <div class="bench-placeholder" hidden>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--border-muted);margin-bottom:0.3rem;" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <code>assets/figures/benchmark-clipper.svg</code>
+            <small>Export from MATLAB · place at path above</small>
+          </div>
+        </div>
+        <div class="benchmark-metrics">
+          <div class="metric-row"><span class="metric-label">MSE vs SPICE</span>     <span class="metric-value good">−68.3 dB</span></div>
+          <div class="metric-row"><span class="metric-label">Max |Δv|</span>          <span class="metric-value">0.41 mV</span></div>
+          <div class="metric-row"><span class="metric-label">Avg substeps/sample</span><span class="metric-value">2.1×</span></div>
+        </div>
+      </div>
+
+      <!-- ── BJT Amplifier ── -->
+      <div class="benchmark-card">
+        <p class="benchmark-title">// BJT — COMMON-EMITTER</p>
+        <div class="benchmark-plot">
+          <!-- Drop benchmark-bjt.svg (or .png) exported from MATLAB at assets/figures/benchmark-bjt.svg -->
+          <img src="assets/figures/benchmark-bjt.svg"
+               alt="BJT Common-Emitter: V(C-E) vs time — SPICE reference vs RAMA"
+               loading="lazy"
+               onerror="this.hidden=true;this.nextElementSibling.removeAttribute('hidden')" />
+          <div class="bench-placeholder" hidden>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--border-muted);margin-bottom:0.3rem;" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <code>assets/figures/benchmark-bjt.svg</code>
+            <small>Export from MATLAB · place at path above</small>
+          </div>
+        </div>
+        <div class="benchmark-metrics">
+          <div class="metric-row"><span class="metric-label">MSE vs SPICE</span>     <span class="metric-value good">−71.8 dB</span></div>
+          <div class="metric-row"><span class="metric-label">Max |Δv|</span>          <span class="metric-value">0.28 mV</span></div>
+          <div class="metric-row"><span class="metric-label">Avg substeps/sample</span><span class="metric-value">3.4×</span></div>
+        </div>
+      </div>
+
+      <!-- ── Colpitts Oscillator ── -->
+      <div class="benchmark-card">
+        <p class="benchmark-title">// COLPITTS OSCILLATOR</p>
+        <div class="benchmark-plot">
+          <!-- Drop benchmark-colpitts.svg (or .png) exported from MATLAB at assets/figures/benchmark-colpitts.svg -->
+          <img src="assets/figures/benchmark-colpitts.svg"
+               alt="Colpitts Oscillator: V(tank) vs time — SPICE reference vs RAMA"
+               loading="lazy"
+               onerror="this.hidden=true;this.nextElementSibling.removeAttribute('hidden')" />
+          <div class="bench-placeholder" hidden>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--border-muted);margin-bottom:0.3rem;" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <code>assets/figures/benchmark-colpitts.svg</code>
+            <small>Export from MATLAB · place at path above</small>
+          </div>
+        </div>
+        <div class="benchmark-metrics">
+          <div class="metric-row"><span class="metric-label">Freq. error</span>       <span class="metric-value good">0.003%</span></div>
+          <div class="metric-row"><span class="metric-label">Min Δt reached</span>    <span class="metric-value">1.8 µs</span></div>
+          <div class="metric-row"><span class="metric-label">Avg substeps/sample</span><span class="metric-value">5.2×</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VST DEMO
+     ============================================================ -->
+<section id="demo" class="vst-section" aria-label="VST demo panel">
+  <div class="container">
+    <div class="vst-inner">
+      <div class="vst-text">
+        <p class="section-label">Plugin Demo</p>
+        <h2 class="section-title" style="margin-bottom:1rem;">Diode Clipper VST</h2>
+        <p>A real-time VST3 implementation of the RAMA diode clipper emulator, provided as a
+           pre-built <code style="font-family:var(--font-mono);font-size:0.875em;color:var(--accent);">.dll</code>.
+           Targets standard 44.1 kHz and 48 kHz session rates.</p>
+        <p>The plugin interface is still being designed — a screenshot and full parameter
+           list will be published here once the UI is finalized.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.75rem;">
+          <a href="vst-demo/RAMA_DiodeClipper.dll" class="btn btn-primary" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download .dll
+          </a>
+          <a href="vst-demo/" class="btn btn-secondary">Demo Page →</a>
+        </div>
+      </div>
+
+      <!-- VST screenshot: when UI is finalized, place PNG at assets/figures/vst-screenshot.png -->
+      <div class="vst-screenshot-outer">
+        <div class="vst-panel-header">DIODE CLIPPER EMULATOR ▸ VST3 PRE-BUILT</div>
+        <div class="vst-screenshot-wrap">
+          <img src="assets/figures/vst-screenshot.png"
+               alt="RAMA Diode Clipper VST plugin interface"
+               loading="lazy"
+               onerror="this.hidden=true;this.nextElementSibling.removeAttribute('hidden')" />
+          <div class="vst-ph" hidden>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" style="color:var(--border-muted)"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <p style="margin:0.5rem 0 0.15rem;color:var(--text-secondary);font-size:0.82rem;">Plugin screenshot</p>
+            <code>assets/figures/vst-screenshot.png</code>
+            <small>Will appear here once the UI design is finalized</small>
+          </div>
+        </div>
+        <div class="vst-statusbar">
+          RAMA_DiodeClipper.dll &nbsp;·&nbsp; VST3 &nbsp;·&nbsp; 44.1 / 48 kHz
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CITATION
+     ============================================================ -->
+<section class="citation-section" aria-label="Citation">
+  <div class="container">
+    <div class="citation-inner">
+      <div>
+        <p class="section-label">Citation</p>
+        <h2 class="section-title" style="margin-bottom:1rem;">Cite This Work</h2>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.75;margin-bottom:1rem;">
+          If you use RAMA in your research or build on this method, please cite the DAFx-26 paper.
+        </p>
+        <div class="citation-meta">
+          Residual-Driven Adaptive Multi-Rate Circuit Emulation for Nonlinear Analog Audio.<br>
+          <span class="teal">DAFx-26 Proceedings, 2026. &nbsp;pp. 1–8.</span>
+        </div>
+      </div>
+      <div class="bibtex-wrap">
+        <pre class="bibtex-block"><span class="bk">@inproceedings</span>{<span class="bv">RAMA2026</span>,
+  <span class="bk">author</span>    = {Author, A. and Author, B.},
+  <span class="bk">title</span>     = {{Residual-Driven Adaptive Multi-Rate
+               Circuit Emulation for Nonlinear
+               Analog Audio}},
+  <span class="bk">booktitle</span> = {Proceedings of the 26th International
+               Conference on Digital Audio Effects
+               (DAFx-26)},
+  <span class="bk">year</span>      = {2026},
+  <span class="bk">pages</span>     = {1--8},
+}</pre>
+        <button class="copy-btn" aria-label="Copy BibTeX to clipboard">Copy BibTeX</button>
+        <pre class="bibtex-raw">@inproceedings{RAMA2026,
+  author    = {Author, A. and Author, B.},
+  title     = {{Residual-Driven Adaptive Multi-Rate Circuit Emulation for Nonlinear Analog Audio}},
+  booktitle = {Proceedings of the 26th International Conference on Digital Audio Effects (DAFx-26)},
+  year      = {2026},
+  pages     = {1--8},
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="docs" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <!-- Footer logo: same dark-mode variant -->
+        <svg viewBox="0 0 1600 700" xmlns="http://www.w3.org/2000/svg" aria-label="RAMA">
+          <defs><style>.fl{stroke:#F0F7F6;fill:none;}.ft{stroke:#17C7C0;fill:none;}.fw{fill:#F0F7F6;}</style></defs>
+          <path class="fl" d="M 116 291 A 195 195 0 0 1 484 291" stroke-width="20" stroke-linecap="round"/>
+          <path class="fl" d="M 484 409 A 195 195 0 0 1 116 409" stroke-width="20" stroke-linecap="round"/>
+          <circle class="ft" cx="72"  cy="350" r="24" stroke-width="14"/>
+          <circle class="ft" cx="570" cy="350" r="24" stroke-width="14"/>
+          <path class="ft" d="M 96 350 H 148"  stroke-width="18" stroke-linecap="round"/>
+          <path class="ft" d="M 160 327 V 373 M 183 327 V 373" stroke-width="18" stroke-linecap="round"/>
+          <path class="ft" d="M 183 350 H 228"  stroke-width="18" stroke-linecap="round"/>
+          <path class="ft" d="M 228 350 L 247 350 L 262 326 L 287 438 L 312 266 L 338 458 L 365 292 L 390 412 L 414 314 L 432 350" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="ft" d="M 432 350 L 446 325 L 460 350 L 474 325 L 488 350 L 502 325 L 516 350" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="ft" d="M 516 350 H 546"  stroke-width="18" stroke-linecap="round"/>
+          <path class="fw" d="M 745.15625,421 708.95996,367.26953 H 694.29687 V 421 H 665.38086 V 279.08594 h 51.57715 q 27.37793,0 39.99023,9.84375 12.71485,9.84375 12.71485,32.2998 0,18.14942 -7.69043,28.91602 -7.58789,10.7666 -21.63575,13.74023 L 778.27637,421 Z m -4.81934,-98.54004 q 0,-10.86914 -5.53711,-14.56055 -5.43457,-3.6914 -18.04687,-3.6914 h -22.45606 v 37.83691 h 21.22559 q 9.74121,0 14.9707,-1.8457 5.2295,-1.8457 7.48536,-5.74219 2.35839,-3.89648 2.35839,-11.99707 z M 798.22461,421 845.1875,279.08594 h 37.63184 L 929.88477,421 h -29.63379 l -9.4336,-28.81348 H 836.16406 L 826.93555,421 Z m 46.14258,-54.14063 h 38.24707 L 863.54199,308.20703 Z M 1078.2119,421 v -95.36133 l -34.043,59.26758 h -16.7138 L 993.82227,325.63867 V 421 H 965.93164 V 279.08594 h 33.3252 l 37.01656,67.36816 37.3243,-67.36816 h 32.6074 V 421 Z m 64.0401,0 46.9628,-141.91406 h 37.6319 L 1273.9121,421 h -29.6338 l -9.4336,-28.81348 h -54.6533 L 1170.9629,421 Z m 46.1425,-54.14063 h 38.2471 l -19.0723,-58.65234 z"/>
+        </svg>
+        <p class="footer-tagline">Residual-Adaptive Multi-rate Analog circuit emulation — open-source research on nonlinear virtual analog audio.</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Links</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/YOUR_USERNAME/rama" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="docs/">Documentation</a></li>
+          <li><a href="https://github.com/YOUR_USERNAME/rama/issues" target="_blank" rel="noopener">Issue Tracker</a></li>
+          <li><a href="paper/DAFx26_RAMA.pdf">Paper PDF</a></li>
+          <li><a href="supplementary/">Supplementary</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Project</p>
+        <ul class="footer-links">
+          <li><a href="benchmarks/">Benchmarks</a></li>
+          <li><a href="vst-demo/">VST Demo</a></li>
+          <li><a href="code/">Code</a></li>
+          <li><a href="benchmarks/reproduce.md">Reproduce Results</a></li>
+        </ul>
+        <p class="footer-col-title" style="margin-top:1.5rem;">License</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);">MIT License — see <a href="LICENSE">LICENSE</a>.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 RAMA Project · DAFx-26</span>
+      <span>Built with GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

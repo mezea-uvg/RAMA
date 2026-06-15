@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1600"
+   height="700"
+   viewBox="0 0 1600 700"
+   version="1.1"
+   id="svg8"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .navy-stroke { stroke: #0B2233; fill: none; }
+      .teal-stroke { stroke: #17C7C0; fill: none; }
+      .word { font-family: 'Clear Sans', 'Noto Sans', Arial, sans-serif; font-size: 210px; font-weight: 700; letter-spacing: 18px; fill: #0B2233; }
+    </style>
+  </defs>
+  <!-- outer ring -->
+  <path
+     class="navy-stroke"
+     d="M 116 291 A 195 195 0 0 1 484 291"
+     stroke-width="18"
+     stroke-linecap="round"
+     id="path1" />
+  <path
+     class="navy-stroke"
+     d="M 484 409 A 195 195 0 0 1 116 409"
+     stroke-width="18"
+     stroke-linecap="round"
+     id="path2" />
+  <!-- circuit nodes -->
+  <circle
+     class="teal-stroke"
+     cx="72"
+     cy="350"
+     r="24"
+     stroke-width="13"
+     id="circle2" />
+  <circle
+     class="teal-stroke"
+     cx="570"
+     cy="350"
+     r="24"
+     stroke-width="13"
+     id="circle3" />
+  <!-- horizontal lead -->
+  <path
+     class="teal-stroke"
+     d="M 96 350 H 148"
+     stroke-width="16"
+     stroke-linecap="round"
+     id="path3" />
+  <!-- capacitor -->
+  <path
+     class="teal-stroke"
+     d="M 160 327 V 373 M 183 327 V 373"
+     stroke-width="16"
+     stroke-linecap="round"
+     id="path4" />
+  <path
+     class="teal-stroke"
+     d="M 183 350 H 228"
+     stroke-width="16"
+     stroke-linecap="round"
+     id="path5" />
+  <!-- waveform with extra oscillation -->
+  <path
+     class="teal-stroke"
+     d="M 228 350                            L 247 350                            L 262 326                            L 287 438                            L 312 266                            L 338 458                            L 365 292                            L 390 412                            L 414 314                            L 432 350"
+     stroke-width="16"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path6" />
+  <!-- resistor zigzag -->
+  <path
+     class="teal-stroke"
+     d="M 432 350                            L 446 325                            L 460 350                            L 474 325                            L 488 350                            L 502 325                            L 516 350"
+     stroke-width="16"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path7" />
+  <path
+     class="teal-stroke"
+     d="M 516 350 H 546"
+     stroke-width="16"
+     stroke-linecap="round"
+     id="path8" />
+  <!-- wordmark converted to paths in final file -->
+  <path
+     d="M 745.15625,421 708.95996,367.26953 H 694.29687 V 421 H 665.38086 V 279.08594 h 51.57715 q 27.37793,0 39.99023,9.84375 12.71485,9.84375 12.71485,32.2998 0,18.14942 -7.69043,28.91602 -7.58789,10.7666 -21.63575,13.74023 L 778.27637,421 Z m -4.81934,-98.54004 q 0,-10.86914 -5.53711,-14.56055 -5.43457,-3.6914 -18.04687,-3.6914 h -22.45606 v 37.83691 h 21.22559 q 9.74121,0 14.9707,-1.8457 5.2295,-1.8457 7.48536,-5.74219 2.35839,-3.89648 2.35839,-11.99707 z M 798.22461,421 845.1875,279.08594 h 37.63184 L 929.88477,421 h -29.63379 l -9.4336,-28.81348 H 836.16406 L 826.93555,421 Z m 46.14258,-54.14063 h 38.24707 L 863.54199,308.20703 Z M 1078.2119,421 v -95.36133 l -34.043,59.26758 h -16.7138 L 993.82227,325.63867 V 421 H 965.93164 V 279.08594 h 33.3252 l 37.01656,67.36816 37.3243,-67.36816 h 32.6074 V 421 Z m 64.0401,0 46.9628,-141.91406 h 37.6319 L 1273.9121,421 h -29.6338 l -9.4336,-28.81348 h -54.6533 L 1170.9629,421 Z m 46.1425,-54.14063 h 38.2471 l -19.0723,-58.65234 z"
+     id="text8"
+     class="word"
+     style="font-weight:700;font-size:210px;font-family:'Clear Sans', 'Noto Sans', Arial, sans-serif;letter-spacing:18px;fill:#0B2233"
+     aria-label="RAMA" />
+</svg>
