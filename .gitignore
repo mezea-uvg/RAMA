@@ -1,0 +1,38 @@
+# ── MATLAB ───────────────────────────────────────────────────
+*.asv            # auto-save backup files
+*.m~
+*.mex*           # compiled MEX binaries (platform-specific)
+*.mexa64
+*.mexmaci64
+*.mexw64
+slprj/           # Simulink build folder (if ever used)
+codegen/         # MATLAB Coder output
+
+# ── macOS ────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Windows ──────────────────────────────────────────────────
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── VST / plugin build artifacts ─────────────────────────────
+# Keep:  vst-demo/RAMA_DiodeClipper.dll  (pre-built distributable — tracked)
+# Ignore intermediate build output if you ever compile locally:
+build/
+*.obj
+*.pdb
+*.exp
+*.lib
+*.ilk
+
+# ── Figures — keep SVG/PNG, ignore raw exports ───────────────
+# Uncomment the line below if you export EPS intermediates you don't want tracked:
+# assets/figures/*.eps
+
+# ── General ──────────────────────────────────────────────────
+*.log
+*.tmp
+.env
