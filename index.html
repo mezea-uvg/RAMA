@@ -121,12 +121,12 @@
       Residual-Driven<br>
       Adaptive<br>
       <em>Multi-Rate</em><br>
-      Circuit Emulation
+      Analog Circuit Emulation
     </h1>
     <p class="hero-subtitle">
       A research project on nonlinear analog circuit emulation for virtual analog audio —
-      bridging DAE-based modeling, local linear surrogate solving, and residual-driven
-      adaptive time stepping.
+      bridging DAE-based modeling, constraint stabilization, and residual-driven adaptive
+      time stepping.
     </p>
     <div class="hero-actions">
       <a href="#paper" class="btn btn-primary">
@@ -162,7 +162,7 @@
       <p class="about-body">
         RAMA explores a residual-driven adaptive multi-rate formulation for nonlinear analog circuit emulation.
         Starting from a DAE representation of the circuit, the method replaces nonlinear device constraints with
-        a local linear surrogate inside an equality-constrained optimization step, then uses the post-step
+        a stabilized linear surrogate inside an equality-constrained optimization step, then uses the post-step
         nonlinear residual to drive adaptive internal time stepping. The result allocates computational effort
         proportional to local nonlinear activity — spending more steps through fast transients and recovering
         sample-synchronous throughput during quiescent segments.
@@ -188,10 +188,10 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <p class="card-title">Publications</p>
-        <p class="card-body">Two peer-reviewed papers — the initial formulation presented at DAFx&#8209;25, and the extended method with the diode clipper VST case study at DAFx&#8209;26.</p>
+        <p class="card-body">Two peer-reviewed papers — the initial formulation presented at DAFx25, and the extended adaptive method with more complex benchmark circuits at DAFx26.</p>
         <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <a href="paper/DAFx25_paper_45.pdf" class="btn btn-ghost">DAFx&#8209;25 Paper →</a>
-          <a href="paper/DAFx26_RAMA.pdf" class="btn btn-ghost">DAFx&#8209;26 Paper →</a>
+          <a href="paper/DAFx25_paper_45.pdf" class="btn btn-ghost">DAFx25 Paper →</a>
+          <a href="paper/DAFx26_RAMA.pdf" class="btn btn-ghost">DAFx26 Paper →</a>
         </div>
       </div>
 
@@ -200,7 +200,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
         <p class="card-title">Open-Source Code</p>
-        <p class="card-body">MATLAB reference implementation with modular components, test circuits, and examples. Includes the equality-constrained solver, residual-based step controller, and reference nonlinear device models. A C++ port is not planned at this stage.</p>
+        <p class="card-body">MATLAB reference implementation to reproduce the paper's results. Includes the equality-constrained solver, residual-based step controller, and reference nonlinear device models.</p>
         <a href="https://github.com/mezea-uvg/RAMA" class="btn btn-ghost" target="_blank" rel="noopener">Browse on GitHub →</a>
       </div>
 
@@ -209,7 +209,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <p class="card-title">Supplementary Material</p>
-        <p class="card-body">Two companion documents: full circuit matrix derivations, and an expanded version of the proof sketch from the DAFx&#8209;26 paper.</p>
+        <p class="card-body">Companion documents: full circuit matrix derivations, expanded details of the proof sketch from the DAFx26 paper, etc.</p>
         <a href="supplementary/" class="btn btn-ghost">Browse Material →</a>
       </div>
 
