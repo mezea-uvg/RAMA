@@ -604,3 +604,63 @@ img, svg { max-width: 100%; }
 .cards-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
+
+/* ============================================================
+   VST Demos section (two-card grid layout)
+   ============================================================ */
+.vst-demos-section { padding: var(--sp-2xl) 0; }
+
+.section-header-centered {
+  text-align: center;
+  max-width: 58ch;
+  margin: 0 auto var(--sp-xl);
+}
+.section-header-centered .section-title { margin-bottom: 0.5rem; }
+.section-intro {
+  font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7;
+}
+.section-intro code {
+  font-family: var(--font-mono); font-size: 0.875em; color: var(--accent);
+}
+
+.vst-demos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-lg);
+}
+.vst-demo-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-muted);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+.vst-demo-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(23, 199, 192, 0.10);
+}
+.vst-demo-header { padding: var(--sp-md) var(--sp-md) 0; }
+.vst-demo-circuit-type {
+  font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.2rem;
+}
+.vst-demo-name {
+  font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
+}
+.vst-demo-screenshot {
+  width: 100%; aspect-ratio: 16 / 9; margin-top: var(--sp-sm);
+  background: var(--bg-base); display: flex; align-items: stretch;
+}
+.vst-demo-screenshot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.vst-demo-desc {
+  padding: var(--sp-sm) var(--sp-md);
+  font-size: 0.875rem; color: var(--text-secondary);
+  line-height: 1.65; flex: 1;
+}
+.vst-demo-dl {
+  margin: 0 var(--sp-md) var(--sp-md); justify-content: center;
+}
